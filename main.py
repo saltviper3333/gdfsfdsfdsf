@@ -13,7 +13,7 @@ class AutoSpamMod(loader.Module):
     
     strings = {
         "name": "AutoSpam",
-        "spam_started": "🚀 <b>Спам запущен!</b>\n📁 Файл: <code>messages.txt</code>\n⚡ Задержка: <b>0.05 сек</b>",
+        "spam_started": "🚀 <b>Спам запущен!</b>\n📁 Файл: <code>messages.txt</code>\n⚡ Задержка: <b>0.5 сек</b>",
         "spam_stopped": "⛔ <b>Спам остановлен!</b>",
         "spam_error": "❌ <b>Ошибка:</b> <code>{}</code>",
         "file_not_found": "❌ <b>Файл messages.txt не найден!</b>\nСоздайте файл messages.txt в папке с ботом",
@@ -72,7 +72,7 @@ class AutoSpamMod(loader.Module):
                     await message.client.send_message(message.chat_id, random_message)
                     
                     # Минимальная задержка
-                    await asyncio.sleep(0.05)
+                    await asyncio.sleep(0.5)
                     
                 except errors.FloodWaitError as e:
                     await utils.answer(message, self.strings["flood_wait"].format(e.seconds))
